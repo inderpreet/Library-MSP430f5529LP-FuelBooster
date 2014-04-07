@@ -38,6 +38,7 @@ tmp/
 local.properties
 .settings/
 .loadpath
+*.mk
 
 # External tool builders
 .externalToolBuilders/
