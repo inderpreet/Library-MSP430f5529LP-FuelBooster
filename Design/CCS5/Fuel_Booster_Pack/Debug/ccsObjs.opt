@@ -1,0 +1,1 @@
+"./printf.obj" "./msp430f5529_bq27510.obj" "../lnk_msp430f5529.cmd" -l"libmath.a" -l"libc.a" 

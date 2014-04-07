@@ -68,8 +68,8 @@ $(GEN_CMDS__FLAG) \
 "./main.obj" \
 "./hal.obj" \
 "./BCUart.obj" \
-"E:/Inderpreet/Sandbox/MSP430_CC/Design/CCS5/simpleUsbBackchannel/lnk_msp430f5529.cmd" \
-"E:/Inderpreet/Sandbox/MSP430_CC/Design/CCS5/simpleUsbBackchannel/USB_API/msp430USB.cmd" \
+"E:/Inderpreet/Sandbox/MSP430f5529_USB_LAUNCHPAD/Design/CCS5/simpleUsbBackchannel/lnk_msp430f5529.cmd" \
+"E:/Inderpreet/Sandbox/MSP430f5529_USB_LAUNCHPAD/Design/CCS5/simpleUsbBackchannel/USB_API/msp430USB.cmd" \
 -l"libc.a" \
 
 -include ../makefile.init

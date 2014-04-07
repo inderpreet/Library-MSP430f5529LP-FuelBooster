@@ -39,6 +39,10 @@ int iRCAP 		= 0;
 unsigned int uiTTE = 0;
 unsigned int uiTTF = 0;
 
+//int CHARGE_PIN A5;
+//int EN_PIN     P1.6;
+//int PG_PIN P3.2
+
 // Function for printing data
 // Comment out anything you don't want
 void printStuff(void){

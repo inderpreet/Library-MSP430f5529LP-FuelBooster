@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="xconfig_FuelTank_BoosterPack" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/FuelTank_BoosterPack_pe430X.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="E:/Inderpreet/Sandbox/MSP430f5529_USB_LAUNCHPAD/Design/CCS5/MSP430G2_FuelTank_BoostPack/FuelTank_BoosterPack.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/FuelTank_BoosterPack_pe430X.mak" src="package.bld"/>
+        <srcFile name="package/cfg/FuelTank_BoosterPack_pe430X.oe430X.dep" src="package/cfg/FuelTank_BoosterPack_pe430X.c"/>
+        <srcFile name="package/cfg/FuelTank_BoosterPack_pe430X.dep" src="package/cfg/FuelTank_BoosterPack_pe430X.cfg"/>
+        <srcFile name="package/cfg/FuelTank_BoosterPack.xe430X.mak" src="package.bld"/>
+        <srcFile name="package/rel/xconfig_FuelTank_BoosterPack.tar.dep" src="package/rel/xconfig_FuelTank_BoosterPack.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.msp430.elf.MSP430X"
+            version="ti.targets.msp430.elf.MSP430X{1,0,4.2,1"
+            rawVersion="4.2.1"
+            platform="ti.platforms.exp430F5438"
+            isa="430X"
+            suffix="e430X"
+            rootDir="C:/ti/ccsv5/tools/compiler/msp430_4.2.1"
+            os="undefined"
+            rts="ti.targets.msp430.rts430">
+            <model endian="little"
+                codeModel="large"
+                dataModel="restricted"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="FuelTank_BoosterPack"
+        pname="FuelTank_BoosterPack.pe430X"
+        target="ti.targets.msp430.elf.MSP430X"
+        platform="ti.platforms.msp430:$DeviceId$"
+        profile="release"
+        isPartial="false"
+        xCfgScript="package/cfg/FuelTank_BoosterPack_pe430X.cfg"
+        xCfgPrefix="package/cfg/FuelTank_BoosterPack_pe430X"
+        cfgScript="E:/Inderpreet/Sandbox/MSP430f5529_USB_LAUNCHPAD/Design/CCS5/MSP430G2_FuelTank_BoostPack/FuelTank_BoosterPack.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="FuelTank_BoosterPack"
+        pname="FuelTank_BoosterPack.xe430X"
+        target="ti.targets.msp430.elf.MSP430X"
+        platform="ti.platforms.msp430:$DeviceId$"
+        profile="release"
+        xCfgScript="package/cfg/FuelTank_BoosterPack_pe430X.cfg"
+        xCfgPrefix="package/cfg/FuelTank_BoosterPack_pe430X"
+        cfgScript="E:/Inderpreet/Sandbox/MSP430f5529_USB_LAUNCHPAD/Design/CCS5/MSP430G2_FuelTank_BoostPack/FuelTank_BoosterPack.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="FuelTank_BoosterPack.xe430X"
+        args=""
+        groupName="FuelTank_BoosterPack.xe430X"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="xconfig_FuelTank_BoosterPack"
+        pname="xconfig_FuelTank_BoosterPack.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

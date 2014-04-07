@@ -8,8 +8,8 @@ CG_TOOL_ROOT := C:/ti/ccsv5/tools/compiler/msp430_4.2.1
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
-"./src/msp430f5529_uartdemo.obj" \
-"../lnk_msp430f5529.cmd" \
+"./printf.obj" \
+"./msp430f5529_bq27510.obj" \
 -l"libmath.a" \
 -l"libc.a" \
 
@@ -21,9 +21,7 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
--include src/subdir_vars.mk
 -include subdir_rules.mk
--include src/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -112,21 +110,22 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: usart_demo.out
+all: FuelTank_BoosterPack.out
 
 # Tool invocations
-usart_demo.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+FuelTank_BoosterPack.out: $(OBJS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=eabi --advice:power="all" -g --define=__MSP430F5529__ --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --printf_support=minimal -z -m"usart_demo.map" --heap_size=160 --stack_size=160 --use_hw_mpy=F5 -i"C:/ti/ccsv5/ccs_base/msp430/include" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/lib" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" -i"C:/ti/ccsv5/ccs_base/msp430/lib" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="usart_demo_linkInfo.xml" --rom_model -o "usart_demo.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmsp --abi=eabi -Ooff --advice:power="1" -g --define=__MSP430F5529__ --diag_warning=225 --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --printf_support=minimal -z -m"FuelTank_BoosterPack.map" --heap_size=160 --stack_size=160 --use_hw_mpy=F5 -i"C:/ti/ccsv5/ccs_base/msp430/include" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/lib" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" -i"C:/ti/ccsv5/ccs_base/msp430/lib" --reread_libs --warn_sections --xml_link_info="FuelTank_BoosterPack_linkInfo.xml" --rom_model -o "FuelTank_BoosterPack.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(MSP430_EXECUTABLE_OUTPUTS__QUOTED) "usart_demo.out"
-	-$(RM) "src\msp430f5529_uartdemo.pp" 
-	-$(RM) "src\msp430f5529_uartdemo.obj" 
+	-$(RM) $(MSP430_EXECUTABLE_OUTPUTS__QUOTED)$(GEN_MISC_FILES__QUOTED)$(GEN_FILES__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED) "FuelTank_BoosterPack.out"
+	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
+	-$(RM) "msp430f5529_bq27510.pp" "printf.pp" 
+	-$(RM) "msp430f5529_bq27510.obj" "printf.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
