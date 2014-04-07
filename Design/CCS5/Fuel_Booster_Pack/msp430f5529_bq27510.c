@@ -464,15 +464,15 @@ void initUART(void)
 
 
 /**
-  * @briefInitialize the timer A0
+  * @briefInitialize the timer A1
   * @param  
   * @retval None
   */
 void initTimer(void)
 {
-    CCTL0 = CCIE;
+    TA1CCTL0 = CCIE;
     /* Set the timer A to SMCLCK, Continuous,input divider 8. */
-    TACTL = TASSEL_2 + MC_2 + ID_3; 
+    TA1CTL = TASSEL_2 + MC_2 + ID_3;
     __enable_interrupt();
     __bis_SR_register(GIE);
 
@@ -599,8 +599,8 @@ __interrupt void USCI_A1_ISR(void)
   * @param  
   * @retval None
   */
-#pragma vector=TIMER0_A0_VECTOR
-__interrupt void Timer_A (void)
+#pragma vector=TIMER0_A1_VECTOR
+__interrupt void Timer_A1 (void)
 {
     timerCount++;
 }
