@@ -1,1 +1,0 @@
-MSP430  ----we do not find any official software on TI website. we organize it based on ccs studio
