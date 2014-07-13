@@ -1,7 +1,7 @@
 ******************************************************************************
-                  MSP430 Linker PC v4.2.1                      
+                  MSP430 Linker PC v4.3.3                      
 ******************************************************************************
->> Linked Mon Apr 07 15:24:17 2014
+>> Linked Sun Jul 13 12:31:45 2014
 
 OUTPUT FILE NAME:   <fuel_booster_pack.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 0000463e
@@ -20,7 +20,7 @@ MEMORY CONFIGURATION
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   USBRAM                00001c00   00000800  00000000  00000800  RWIX
   RAM                   00002400   00002000  000000b7  00001f49  RWIX
-  FLASH                 00004400   0000bb80  00000ae4  0000b09c  RWIX
+  FLASH                 00004400   0000bb80  00000b14  0000b06c  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -121,41 +121,42 @@ section   page    origin      length       input sections
                   00004658    00000014     msp430f5529_bq27510.obj (.text:_isr:USCI_A1_ISR)
                   0000466c    00000006     msp430f5529_bq27510.obj (.text:_isr:Timer_A1)
 
-.text      0    00004672    00000846     
-                  00004672    00000346     msp430f5529_bq27510.obj (.text:main)
-                  000049b8    000000d8     rts430x_lc_sd_eabi.lib : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
-                  00004a90    00000080     msp430f5529_bq27510.obj (.text:USCI_I2C_READ)
-                  00004b10    00000078     printf.obj (.text:Vs_Printf)
-                  00004b88    00000070     rts430x_lc_sd_eabi.lib : autoinit.obj (.text:_auto_init)
-                  00004bf8    00000066     printf.obj (.text:IntToString)
-                  00004c5e    00000040     rts430x_lc_sd_eabi.lib : cpy_util.obj (.text:__memcpy_far)
-                  00004c9e    0000003e                            : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
-                  00004cdc    0000003c     msp430f5529_bq27510.obj (.text:Setup_TX)
-                  00004d18    0000003c     rts430x_lc_sd_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
-                  00004d54    00000032     msp430f5529_bq27510.obj (.text:getstring)
-                  00004d86    0000002c     rts430x_lc_sd_eabi.lib : div16s.obj (.text)
-                  00004db2    0000002a     msp430f5529_bq27510.obj (.text:initUART)
-                  00004ddc    00000020     msp430f5529_bq27510.obj (.text:i2c_stop)
-                  00004dfc    00000020     printf.obj (.text:printf)
-                  00004e1c    00000016     msp430f5529_bq27510.obj (.text:initTimer)
-                  00004e32    00000016     rts430x_lc_sd_eabi.lib : div16u.obj (.text)
-                  00004e48    00000016                            : mult16_f5hw.obj (.text)
-                  00004e5e    00000014     msp430f5529_bq27510.obj (.text:fputs)
-                  00004e72    0000000e     rts430x_lc_sd_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
-                  00004e80    0000000c     msp430f5529_bq27510.obj (.text:receiveByte)
-                  00004e8c    0000000c     msp430f5529_bq27510.obj (.text:sendByte)
-                  00004e98    0000000c     msp430f5529_bq27510.obj (.text:transBytes2Int)
-                  00004ea4    00000006     rts430x_lc_sd_eabi.lib : isr_trap.obj (.text:__TI_ISR_TRAP)
-                  00004eaa    00000006     msp430f5529_bq27510.obj (.text:i2c_start)
-                  00004eb0    00000004     rts430x_lc_sd_eabi.lib : pre_init.obj (.text:_system_pre_init)
-                  00004eb4    00000004                            : exit.obj (.text:abort)
+.text      0    00004672    00000876     
+                  00004672    0000034e     msp430f5529_bq27510.obj (.text:main)
+                  000049c0    000000d8     rts430x_lc_sd_eabi.lib : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  00004a98    00000084                            : autoinit.obj (.text:_auto_init_hold_wdt)
+                  00004b1c    00000080     msp430f5529_bq27510.obj (.text:USCI_I2C_READ)
+                  00004b9c    00000078     printf.obj (.text:Vs_Printf)
+                  00004c14    00000066     printf.obj (.text:IntToString)
+                  00004c7a    00000040     rts430x_lc_sd_eabi.lib : cpy_util.obj (.text:__memcpy_far)
+                  00004cba    0000003e                            : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  00004cf8    0000003c     msp430f5529_bq27510.obj (.text:Setup_TX)
+                  00004d34    0000003c     rts430x_lc_sd_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  00004d70    00000032     msp430f5529_bq27510.obj (.text:getstring)
+                  00004da2    0000002c     rts430x_lc_sd_eabi.lib : div16s.obj (.text)
+                  00004dce    0000002a     msp430f5529_bq27510.obj (.text:initUART)
+                  00004df8    00000020     msp430f5529_bq27510.obj (.text:i2c_stop)
+                  00004e18    00000020     printf.obj (.text:printf)
+                  00004e38    0000001a     msp430f5529_bq27510.obj (.text:initTimer)
+                  00004e52    00000016     rts430x_lc_sd_eabi.lib : div16u.obj (.text)
+                  00004e68    00000016                            : mult16_f5hw.obj (.text)
+                  00004e7e    00000014     msp430f5529_bq27510.obj (.text:fputs)
+                  00004e92    00000010     msp430f5529_bq27510.obj (.text:initI2C)
+                  00004ea2    0000000e     rts430x_lc_sd_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+                  00004eb0    0000000c     msp430f5529_bq27510.obj (.text:receiveByte)
+                  00004ebc    0000000c     msp430f5529_bq27510.obj (.text:sendByte)
+                  00004ec8    0000000c     msp430f5529_bq27510.obj (.text:transBytes2Int)
+                  00004ed4    00000006     rts430x_lc_sd_eabi.lib : isr_trap.obj (.text:__TI_ISR_TRAP)
+                  00004eda    00000006     msp430f5529_bq27510.obj (.text:i2c_start)
+                  00004ee0    00000004     rts430x_lc_sd_eabi.lib : pre_init.obj (.text:_system_pre_init)
+                  00004ee4    00000004                            : exit.obj (.text:abort)
 
-.cinit     0    00004eb8    0000002c     
-                  00004eb8    0000000c     (__TI_handler_table)
-                  00004ec4    00000009     (.cinit..data.load) [load image, compression = rle]
-                  00004ecd    00000001     --HOLE-- [fill = 0]
-                  00004ece    00000006     (.cinit..bss.load) [load image, compression = zero_init]
-                  00004ed4    00000010     (__TI_cinit_table)
+.cinit     0    00004ee8    0000002c     
+                  00004ee8    0000000c     (__TI_handler_table)
+                  00004ef4    00000009     (.cinit..data.load) [load image, compression = rle]
+                  00004efd    00000001     --HOLE-- [fill = 0]
+                  00004efe    00000006     (.cinit..bss.load) [load image, compression = zero_init]
+                  00004f04    00000010     (__TI_cinit_table)
 
 RTC        0    0000ffd2    00000002     
                   0000ffd2    00000002     rts430x_lc_sd_eabi.lib : int41.obj (.int41)
@@ -237,14 +238,14 @@ SYSNMI     0    0000fffc    00000002
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00004ed4 records: 2, size/record: 8, table size: 16
-	.data: load addr=00004ec4, load size=00000009 bytes, run addr=00002414, run size=00000003 bytes, compression=rle
-	.bss: load addr=00004ece, load size=00000006 bytes, run addr=00002400, run size=00000014 bytes, compression=zero_init
+__TI_cinit_table @ 00004f04 records: 2, size/record: 8, table size: 16
+	.data: load addr=00004ef4, load size=00000009 bytes, run addr=00002414, run size=00000003 bytes, compression=rle
+	.bss: load addr=00004efe, load size=00000006 bytes, run addr=00002400, run size=00000014 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00004eb8 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00004ee8 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_rle24
 	index: 2, handler: __TI_decompress_none
@@ -336,7 +337,7 @@ address    name
 00000732   ADC12MEM9
 00000733   ADC12MEM9_H
 00000732   ADC12MEM9_L
-00004eb4   C$$EXIT
+00004ee4   C$$EXIT
 000008c0   CBCTL0
 000008c1   CBCTL0_H
 000008c0   CBCTL0_L
@@ -417,7 +418,7 @@ address    name
 00000147   FCTL4_H
 00000146   FCTL4_L
 00002416   FLAGS
-00004bf8   IntToString
+00004c14   IntToString
 000004c4   MAC
 000004da   MAC32H
 000004db   MAC32H_H
@@ -710,7 +711,7 @@ address    name
 0000019a   SYSUNIV
 0000019b   SYSUNIV_H
 0000019a   SYSUNIV_L
-00004cdc   Setup_TX
+00004cf8   Setup_TX
 00000352   TA0CCR0
 00000354   TA0CCR1
 00000356   TA0CCR2
@@ -1000,23 +1001,23 @@ address    name
 00000933   USBVECINT_H
 00000932   USBVECINT_L
 00004658   USCI_A1_ISR
-00004a90   USCI_I2C_READ
-00004b10   Vs_Printf
+00004b1c   USCI_I2C_READ
+00004b9c   Vs_Printf
 0000015c   WDTCTL
 0000015d   WDTCTL_H
 0000015c   WDTCTL_L
 00004400   __STACK_END
 000000a0   __STACK_SIZE
-00004ed4   __TI_CINIT_Base
-00004ee4   __TI_CINIT_Limit
-00004eb8   __TI_Handler_Table_Base
-00004ec4   __TI_Handler_Table_Limit
+00004f04   __TI_CINIT_Base
+00004f14   __TI_CINIT_Limit
+00004ee8   __TI_Handler_Table_Base
+00004ef4   __TI_Handler_Table_Limit
 UNDEFED    __TI_INITARRAY_Base
 UNDEFED    __TI_INITARRAY_Limit
-00004ea4   __TI_ISR_TRAP
+00004ed4   __TI_ISR_TRAP
 00000001   __TI_args_main
-00004d18   __TI_decompress_none
-00004e72   __TI_decompress_rle24
+00004d34   __TI_decompress_none
+00004ea2   __TI_decompress_rle24
 00000001   __TI_exit
 0000ffd2   __TI_int41
 0000ffd4   __TI_int42
@@ -1040,35 +1041,36 @@ UNDEFED    __TI_INITARRAY_Limit
 0000fff8   __TI_int60
 0000fffa   __TI_int61
 0000fffc   __TI_int62
-00004c9e   __TI_zero_init
+00004cba   __TI_zero_init
 ffffffff   __binit__
 ffffffff   __c_args__
-00004c5e   __memcpy_far
-00004d86   __mspabi_divi
-00004e32   __mspabi_divu
-00004e48   __mspabi_mpyi_f5hw
-00004d86   __mspabi_remi
-00004e32   __mspabi_remu
-00004b88   _auto_init
+00004c7a   __memcpy_far
+00004da2   __mspabi_divi
+00004e52   __mspabi_divu
+00004e68   __mspabi_mpyi_f5hw
+00004da2   __mspabi_remi
+00004e52   __mspabi_remu
+00004a98   _auto_init_hold_wdt
 0000463e   _c_int00
 0000463e   _c_int00_noexit
 0000fffe   _reset_vector
 00004360   _stack
-00004eb0   _system_pre_init
-00004eb4   abort
+00004ee0   _system_pre_init
+00004ee4   abort
 ffffffff   binit
-00004e5e   fputs
-00004d54   getstring
-00004eaa   i2c_start
-00004ddc   i2c_stop
-00004e1c   initTimer
-00004db2   initUART
+00004e7e   fputs
+00004d70   getstring
+00004eda   i2c_start
+00004df8   i2c_stop
+00004e92   initI2C
+00004e38   initTimer
+00004dce   initUART
 00004672   main
-00004dfc   printf
-00004e80   receiveByte
-00004e8c   sendByte
+00004e18   printf
+00004eb0   receiveByte
+00004ebc   sendByte
 00002414   timerCount
-00004e98   transBytes2Int
+00004ec8   transBytes2Int
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1830,38 +1832,39 @@ address    name
 00004658   USCI_A1_ISR
 0000466c   Timer_A1
 00004672   main
-00004a90   USCI_I2C_READ
-00004b10   Vs_Printf
-00004b88   _auto_init
-00004bf8   IntToString
-00004c5e   __memcpy_far
-00004c9e   __TI_zero_init
-00004cdc   Setup_TX
-00004d18   __TI_decompress_none
-00004d54   getstring
-00004d86   __mspabi_divi
-00004d86   __mspabi_remi
-00004db2   initUART
-00004ddc   i2c_stop
-00004dfc   printf
-00004e1c   initTimer
-00004e32   __mspabi_divu
-00004e32   __mspabi_remu
-00004e48   __mspabi_mpyi_f5hw
-00004e5e   fputs
-00004e72   __TI_decompress_rle24
-00004e80   receiveByte
-00004e8c   sendByte
-00004e98   transBytes2Int
-00004ea4   __TI_ISR_TRAP
-00004eaa   i2c_start
-00004eb0   _system_pre_init
-00004eb4   C$$EXIT
-00004eb4   abort
-00004eb8   __TI_Handler_Table_Base
-00004ec4   __TI_Handler_Table_Limit
-00004ed4   __TI_CINIT_Base
-00004ee4   __TI_CINIT_Limit
+00004a98   _auto_init_hold_wdt
+00004b1c   USCI_I2C_READ
+00004b9c   Vs_Printf
+00004c14   IntToString
+00004c7a   __memcpy_far
+00004cba   __TI_zero_init
+00004cf8   Setup_TX
+00004d34   __TI_decompress_none
+00004d70   getstring
+00004da2   __mspabi_divi
+00004da2   __mspabi_remi
+00004dce   initUART
+00004df8   i2c_stop
+00004e18   printf
+00004e38   initTimer
+00004e52   __mspabi_divu
+00004e52   __mspabi_remu
+00004e68   __mspabi_mpyi_f5hw
+00004e7e   fputs
+00004e92   initI2C
+00004ea2   __TI_decompress_rle24
+00004eb0   receiveByte
+00004ebc   sendByte
+00004ec8   transBytes2Int
+00004ed4   __TI_ISR_TRAP
+00004eda   i2c_start
+00004ee0   _system_pre_init
+00004ee4   C$$EXIT
+00004ee4   abort
+00004ee8   __TI_Handler_Table_Base
+00004ef4   __TI_Handler_Table_Limit
+00004f04   __TI_CINIT_Base
+00004f14   __TI_CINIT_Limit
 0000ffd2   __TI_int41
 0000ffd4   __TI_int42
 0000ffd6   __TI_int43
@@ -1891,4 +1894,4 @@ ffffffff   binit
 UNDEFED    __TI_INITARRAY_Base
 UNDEFED    __TI_INITARRAY_Limit
 
-[815 symbols]
+[816 symbols]

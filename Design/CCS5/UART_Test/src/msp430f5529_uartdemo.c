@@ -78,7 +78,7 @@ int main(void) {
 void initUART1(){
 	P4SEL = BIT4+BIT5;                        // P4.4,4.5 = USCI_A1 TXD/RXD
     UCA1CTL1 |= UCSWRST;                      // **Put state machine in reset**
-    UCA1CTL1 |= UCSSEL_1;                     // CLK = ACLK : The external Clock crystal I think
+    UCA1CTL1 |= UCSSEL_1;                     // CLK = ACLK
     UCA1BR0 = 0x03;                           // 32kHz/9600=3.41
     UCA1BR1 = 0x00;                           //
     UCA1MCTL = UCBRS_3+UCBRF_0;               // Modulation UCBRSx=3, UCBRFx=0

@@ -80,7 +80,7 @@ void getstring(char *);
 extern void printf(char *, ...);
 void initTimer(void);
 void initUART(void);
-
+void initI2C(void);
 
 /*
 ******************************************************************************
@@ -108,10 +108,7 @@ int main(void)
     unsigned int  dcap;                       /* Stores Design Capacity */
     WDTCTL = WDTPW + WDTHOLD;                 /* Stop WDT */
 
-    P1DIR |= BIT0;                            /* P1.0 output */
-    P1OUT &= ~BIT0;
-    P1SEL |= BIT6 + BIT7;                     /* Assign I2C pins to USCI_B0 */
-
+    initI2C();
     /* Init UART for print message */
     initUART();
 
@@ -232,6 +229,9 @@ int main(void)
 
             while (1) {
                 /* Read state of charge (units = %) */
+            	USCI_I2C_READ(RxDataBuff, 2, bq27510CMD_SOC_LSB);
+            	USCI_I2C_READ(RxDataBuff, 2, bq27510CMD_SOC_LSB);
+
                 if(!USCI_I2C_READ(RxDataBuff, 2, bq27510CMD_SOC_LSB)) {
                 	soc = transBytes2Int(RxDataBuff[1], RxDataBuff[0]);
                 } else {
@@ -247,7 +247,8 @@ int main(void)
                 }
 
                 /* Show the state of charge every interval*2*0.5s */
-                if (timerCount >= interval * 2) {
+                //if (timerCount >= interval * 2) {
+                {
                     timerCount = 0;
                     printf("State of Charge :%d", soc);
                     printf("%c\r\n", c);
@@ -257,7 +258,7 @@ int main(void)
                 if (soc == 100) {
                     printf("State of Charge :%d", soc);
                     printf("%c\r\n", c);
-                    temp = '-1';
+                    temp = '0';
                     break;
                 }
             }
@@ -603,4 +604,16 @@ __interrupt void USCI_A1_ISR(void)
 __interrupt void Timer_A1 (void)
 {
     timerCount++;
+}
+
+/**
+  * @brief  init routine for
+  * @param
+  * @retval None
+  */
+void initI2C(void){
+	P3DIR |= BIT0;                            /* P1.0 output */
+	P3OUT &= ~BIT0;
+	P3SEL |= BIT0 + BIT1;                     /* Assign I2C pins to USCI_B0 */
+
 }
