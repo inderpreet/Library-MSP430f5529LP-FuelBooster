@@ -29,6 +29,7 @@
 #include "bq27510.h"
 #include <Wire.h>
 
+#define mySerial Serial1
 // Global Variables
 int iVoltage 	= 0;
 int iCurrent 	= 0;
@@ -47,31 +48,31 @@ unsigned int uiTTF = 0;
 // Comment out anything you don't want
 void printStuff(void){
 	// Temperature
-	Serial.print(" Temp ");
-	Serial.print(iTemp);
+	//mySerial.print(" Temp ");
+	//mySerial.print(iTemp);
 	// Voltage
-	Serial.print(" Voltage ");
-	Serial.print(iVoltage);
+	mySerial.print(" V ");
+	mySerial.print(iVoltage);
 	// Current
-	Serial.print(" Current ");
-	Serial.print(iCurrent);
+	mySerial.print(" I ");
+	mySerial.print(iCurrent);
 	// State of Charge
-	Serial.print(" SOC ");
-	Serial.print(iSOC);
+	//mySerial.print(" SOC ");
+	//mySerial.print(iSOC);
 	// RCAP
-	Serial.print(" RCAP ");
-	Serial.print(iRCAP);
+	//mySerial.print(" RCAP ");
+	//mySerial.print(iRCAP);
 	// DCAP
-	Serial.print(" DCAP ");
-	Serial.print(iDCAP);
+	//mySerial.print(" DCAP ");
+	//mySerial.print(iDCAP);
 	// Time to Empty
-	Serial.print(" TTE ");
-	Serial.print(uiTTE);
+	//mySerial.print(" TTE ");
+	//mySerial.print(uiTTE);
 	// Time to Full
-	Serial.print(" TTF ");
-	Serial.print(uiTTF);
+	//mySerial.print(" TTF ");
+	//mySerial.print(uiTTF);
 
-        Serial.print("\n");
+        mySerial.print("\r");
 }
 
 // Function to access the data on the Fuel Gauge via I2C
@@ -111,9 +112,9 @@ unsigned int transBytes2Int(unsigned char msb, unsigned char lsb){
 // Run Once Loop
 void setup(void){
 	Wire.begin();        // join i2c bus (address optional for master)
-	Serial.begin(9600);  // start serial for output
-        Serial.println("\nFuel Booster Pack Demo");
-        Serial.println("By: Inderpreet Singh");
+	mySerial.begin(9600);  // start serial for output
+        mySerial.println("\nFuel Booster Pack Demo");
+        mySerial.println("By: Inderpreet Singh");
 }
 
 // Run forever Loop
