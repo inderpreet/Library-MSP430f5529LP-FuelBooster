@@ -1,39 +1,33 @@
-/* --COPYRIGHT--,BSD_EX
- * Copyright (c) 2012, Texas Instruments Incorporated
- * All rights reserved.
+/*
+* Description: This file is part of the modified demo for the MSP430 Fuel Booster Pack
+* --
+* Copyright (C) 2014 Inderpreet Singh(er.inderpreet@gmail.com),
+			  Thought Process Designs
+* Web      :  http://google.com/+InderpreetSingh
+*		 	  http://embeddedcode.wordpress.com
+*
+* This software may be distributed and modified under the terms of the GNU
+* General Public License version 2 (GPL2) as published by the Free Software
+* Foundation and appearing in the file LICENSE.TXT included in the packaging of
+* this file. Please note that GPL2 Section 2[b] requires that all works based
+* on this software must also be made publicly available under the terms of
+* the GPL2 ("Copyleft").
+*
+* We put a lot of time and effort into our project and hence this copyright
+* notice ensures that people contribute as well as each contribution is
+* acknowledged. Please retain this original notice and if you make changes
+* please document them below along with your details.
+* The latest copy of this project/library can be found at:
+* https://github.com/inderpreet/
+*
+*/
+// ----------------------------------------------------------------------------
+
+/* Version 1.1
+ * Inderpreet Singh
+ * Modified the original code to work with the MSP430f5529.
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * *  Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- * *  Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *
- * *  Neither the name of Texas Instruments Incorporated nor the names of
- *    its contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * --/COPYRIGHT--*/
- /* Version 1.1
-  * Inderpreet Singh
-  * Modified the original code to work with the MSP430f5529
-  *
-  */
+*/
  
 /*
 ******************************************************************************
