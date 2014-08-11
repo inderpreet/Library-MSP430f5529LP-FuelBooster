@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/ti/ccsv5/tools/compiler/msp430_4.2.1
+CG_TOOL_ROOT := c:/ti/ccsv6/tools/compiler/msp430_4.3.3
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
@@ -185,6 +185,12 @@ endif
 -include ../makefile.defs
 
 # Add inputs and outputs from these tool invocations to the build variables 
+EXE_OUTPUTS += \
+simpleUsbBackchannel.out \
+
+EXE_OUTPUTS__QUOTED += \
+"simpleUsbBackchannel.out" \
+
 
 # All Target
 all: simpleUsbBackchannel.out
@@ -193,14 +199,14 @@ all: simpleUsbBackchannel.out
 simpleUsbBackchannel.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/cl430" -vmspx --abi=eabi -Ooff -g --advice:power=all --define=__MSP430F5529__ --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --printf_support=minimal -z --stack_size=160 -m"simpleUsbBackchannel.map" --heap_size=160 --use_hw_mpy=F5 -i"C:/ti/ccsv5/ccs_base/msp430/include" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/lib" -i"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/include" --reread_libs --warn_sections --display_error_number --diag_suppress=10374 --diag_wrap=off --xml_link_info="simpleUsbBackchannel_linkInfo.xml" --rom_model -o "simpleUsbBackchannel.out" $(ORDERED_OBJS)
+	"c:/ti/ccsv6/tools/compiler/msp430_4.3.3/bin/cl430" -vmspx --abi=eabi -Ooff -g --advice:power=all --define=__MSP430F5529__ --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --printf_support=minimal -z --stack_size=160 -m"simpleUsbBackchannel.map" --heap_size=160 --use_hw_mpy=F5 -i"c:/ti/ccsv6/ccs_base/msp430/include" -i"c:/ti/ccsv6/tools/compiler/msp430_4.3.3/lib" -i"c:/ti/ccsv6/tools/compiler/msp430_4.3.3/include" --reread_libs --warn_sections --display_error_number --diag_suppress=10374 --diag_wrap=off --xml_link_info="simpleUsbBackchannel_linkInfo.xml" --rom_model -o "simpleUsbBackchannel.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	@$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(MSP430_EXECUTABLE_OUTPUTS__QUOTED) "simpleUsbBackchannel.out"
+	-$(RM) $(EXE_OUTPUTS__QUOTED)
 	-$(RM) "BCUart.pp" "hal.pp" "main.pp" "system_pre_init.pp" "driverlib\MSP430F5xx_6xx\adc10_a.pp" "driverlib\MSP430F5xx_6xx\adc12_a.pp" "driverlib\MSP430F5xx_6xx\aes.pp" "driverlib\MSP430F5xx_6xx\bak_batt.pp" "driverlib\MSP430F5xx_6xx\comp_b.pp" "driverlib\MSP430F5xx_6xx\crc.pp" "driverlib\MSP430F5xx_6xx\dac12_a.pp" "driverlib\MSP430F5xx_6xx\dma.pp" "driverlib\MSP430F5xx_6xx\eusci_a_spi.pp" "driverlib\MSP430F5xx_6xx\eusci_a_uart.pp" "driverlib\MSP430F5xx_6xx\eusci_b_i2c.pp" "driverlib\MSP430F5xx_6xx\eusci_b_spi.pp" "driverlib\MSP430F5xx_6xx\eusci_i2c.pp" "driverlib\MSP430F5xx_6xx\eusci_spi.pp" "driverlib\MSP430F5xx_6xx\eusci_uart.pp" "driverlib\MSP430F5xx_6xx\flash.pp" "driverlib\MSP430F5xx_6xx\gpio.pp" "driverlib\MSP430F5xx_6xx\ldopwr.pp" "driverlib\MSP430F5xx_6xx\mpy32.pp" "driverlib\MSP430F5xx_6xx\pmap.pp" "driverlib\MSP430F5xx_6xx\pmm.pp" "driverlib\MSP430F5xx_6xx\ram.pp" "driverlib\MSP430F5xx_6xx\ref.pp" "driverlib\MSP430F5xx_6xx\rtc_a.pp" "driverlib\MSP430F5xx_6xx\rtc_b.pp" "driverlib\MSP430F5xx_6xx\rtc_c.pp" 
 	-$(RM) "driverlib\MSP430F5xx_6xx\sd24_b.pp" "driverlib\MSP430F5xx_6xx\sfr.pp" "driverlib\MSP430F5xx_6xx\sys.pp" "driverlib\MSP430F5xx_6xx\tec.pp" "driverlib\MSP430F5xx_6xx\timer_a.pp" "driverlib\MSP430F5xx_6xx\timer_b.pp" "driverlib\MSP430F5xx_6xx\timer_d.pp" "driverlib\MSP430F5xx_6xx\tlv.pp" "driverlib\MSP430F5xx_6xx\ucs.pp" "driverlib\MSP430F5xx_6xx\usci_a_spi.pp" "driverlib\MSP430F5xx_6xx\usci_a_uart.pp" "driverlib\MSP430F5xx_6xx\usci_b_i2c.pp" "driverlib\MSP430F5xx_6xx\usci_b_spi.pp" "driverlib\MSP430F5xx_6xx\usci_i2c.pp" "driverlib\MSP430F5xx_6xx\usci_spi.pp" "driverlib\MSP430F5xx_6xx\usci_uart.pp" "driverlib\MSP430F5xx_6xx\wdt_a.pp" "USB_config\UsbIsr.pp" "USB_config\descriptors.pp" "USB_app\usbConstructs.pp" "USB_app\usbEventHandling.pp" "USB_API\USB_PHDC_API\UsbPHDC.pp" "USB_API\USB_MSC_API\UsbMscReq.pp" "USB_API\USB_MSC_API\UsbMscScsi.pp" "USB_API\USB_MSC_API\UsbMscStateMachine.pp" "USB_API\USB_HID_API\UsbHid.pp" "USB_API\USB_HID_API\UsbHidReq.pp" "USB_API\USB_Common\usb.pp" "USB_API\USB_Common\usbdma.pp" 
 	-$(RM) "USB_API\USB_CDC_API\UsbCdc.pp" 
@@ -212,7 +218,7 @@ clean:
 
 post-build:
 	-@echo 'Create flash image: TI-TXT'
-	-"C:/ti/ccsv5/tools/compiler/msp430_4.2.1/bin/hex430" --ti_txt "simpleUsbBackchannel.out" -o "simpleUsbBackchannel.txt" -order MS -romwidth 16
+	-"c:/ti/ccsv6/tools/compiler/msp430_4.3.3/bin/hex430" --ti_txt "simpleUsbBackchannel.out" -o "simpleUsbBackchannel.txt" -order MS -romwidth 16
 	-@echo ' '
 
 .PHONY: all clean dependents

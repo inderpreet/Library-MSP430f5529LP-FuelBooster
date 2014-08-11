@@ -1,9 +1,9 @@
 ******************************************************************************
-                  MSP430 Linker PC v4.2.1                      
+                  MSP430 Linker PC v4.3.3                      
 ******************************************************************************
->> Linked Mon Apr 07 10:45:36 2014
+>> Linked Mon Aug 11 19:13:43 2014
 
-OUTPUT FILE NAME:   <usart_demo.out>
+OUTPUT FILE NAME:   <MSP430f5529 USART Demo.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00004400
 
 
@@ -20,7 +20,7 @@ MEMORY CONFIGURATION
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   USBRAM                00001c00   00000800  00000000  00000800  RWIX
   RAM                   00002400   00002000  000000a0  00001f60  RWIX
-  FLASH                 00004400   0000bb80  000000ec  0000ba94  RWIX
+  FLASH                 00004400   0000bb80  0000002e  0000bb52  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -85,7 +85,7 @@ MEMORY CONFIGURATION
   INT61                 0000fffa   00000002  00000002  00000000  RWIX
   INT62                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FLASH2                00010000   00014400  00000000  00014400  RWIX
+  FLASH2                00010000   00014400  000000d4  0001432c  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -105,15 +105,7 @@ section   page    origin      length       input sections
 .text:_isr 
 *          0    00004400    0000002e     
                   00004400    0000001a     rts430x_lc_sd_eabi.lib : boot.obj (.text:_isr:_c_int00_noexit)
-                  0000441a    00000014     msp430f5529_uartdemo.obj (.text:_isr:USCI_A1_ISR)
-
-.text      0    0000442e    000000be     
-                  0000442e    00000070     rts430x_lc_sd_eabi.lib : autoinit.obj (.text:_auto_init)
-                  0000449e    0000002a     msp430f5529_uartdemo.obj (.text:initUART1)
-                  000044c8    00000016     msp430f5529_uartdemo.obj (.text:main)
-                  000044de    00000006     rts430x_lc_sd_eabi.lib : isr_trap.obj (.text:__TI_ISR_TRAP)
-                  000044e4    00000004                            : pre_init.obj (.text:_system_pre_init)
-                  000044e8    00000004                            : exit.obj (.text:abort)
+                  0000441a    00000014     main.obj (.text:_isr:USCI_A1_ISR)
 
 RTC        0    0000ffd2    00000002     
                   0000ffd2    00000002     rts430x_lc_sd_eabi.lib : int41.obj (.int41)
@@ -133,7 +125,7 @@ USCI_B1    0    0000ffda    00000002
                   0000ffda    00000002     rts430x_lc_sd_eabi.lib : int45.obj (.int45)
 
 USCI_A1    0    0000ffdc    00000002     
-                  0000ffdc    00000002     msp430f5529_uartdemo.obj (.int46)
+                  0000ffdc    00000002     main.obj (.int46)
 
 PORT1      0    0000ffde    00000002     
                   0000ffde    00000002     rts430x_lc_sd_eabi.lib : int47.obj (.int47)
@@ -191,6 +183,14 @@ SYSNMI     0    0000fffc    00000002
 
 .reset     0    0000fffe    00000002     
                   0000fffe    00000002     rts430x_lc_sd_eabi.lib : boot.obj (.reset)
+
+.text      0    00010000    000000d4     
+                  00010000    00000084     rts430x_lc_sd_eabi.lib : autoinit.obj (.text:_auto_init_hold_wdt)
+                  00010084    0000002a     main.obj (.text:initUART1)
+                  000100ae    00000018     main.obj (.text:main)
+                  000100c6    00000006     rts430x_lc_sd_eabi.lib : isr_trap.obj (.text:__TI_ISR_TRAP)
+                  000100cc    00000004                            : pre_init.obj (.text:_system_pre_init)
+                  000100d0    00000004                            : exit.obj (.text:abort)
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -279,7 +279,7 @@ address    name
 00000732   ADC12MEM9
 00000733   ADC12MEM9_H
 00000732   ADC12MEM9_L
-000044e8   C$$EXIT
+000100d0   C$$EXIT
 000008c0   CBCTL0
 000008c1   CBCTL0_H
 000008c0   CBCTL0_L
@@ -949,7 +949,7 @@ UNDEFED    __TI_Handler_Table_Base
 UNDEFED    __TI_Handler_Table_Limit
 UNDEFED    __TI_INITARRAY_Base
 UNDEFED    __TI_INITARRAY_Limit
-000044de   __TI_ISR_TRAP
+000100c6   __TI_ISR_TRAP
 00000001   __TI_args_main
 00000001   __TI_exit
 0000ffd2   __TI_int41
@@ -976,16 +976,16 @@ UNDEFED    __TI_INITARRAY_Limit
 0000fffc   __TI_int62
 ffffffff   __binit__
 ffffffff   __c_args__
-0000442e   _auto_init
+00010000   _auto_init_hold_wdt
 00004400   _c_int00
 00004400   _c_int00_noexit
 0000fffe   _reset_vector
 00004360   _stack
-000044e4   _system_pre_init
-000044e8   abort
+000100cc   _system_pre_init
+000100d0   abort
 ffffffff   binit
-0000449e   initUART1
-000044c8   main
+00010084   initUART1
+000100ae   main
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1742,13 +1742,6 @@ address    name
 00004400   _c_int00
 00004400   _c_int00_noexit
 0000441a   USCI_A1_ISR
-0000442e   _auto_init
-0000449e   initUART1
-000044c8   main
-000044de   __TI_ISR_TRAP
-000044e4   _system_pre_init
-000044e8   C$$EXIT
-000044e8   abort
 0000ffd2   __TI_int41
 0000ffd4   __TI_int42
 0000ffd6   __TI_int43
@@ -1772,6 +1765,13 @@ address    name
 0000fffa   __TI_int61
 0000fffc   __TI_int62
 0000fffe   _reset_vector
+00010000   _auto_init_hold_wdt
+00010084   initUART1
+000100ae   main
+000100c6   __TI_ISR_TRAP
+000100cc   _system_pre_init
+000100d0   C$$EXIT
+000100d0   abort
 ffffffff   __binit__
 ffffffff   __c_args__
 ffffffff   binit

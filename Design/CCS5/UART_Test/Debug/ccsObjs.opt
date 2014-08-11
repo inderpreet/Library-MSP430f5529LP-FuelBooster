@@ -1,1 +1,0 @@
-"./src/msp430f5529_uartdemo.obj" "../lnk_msp430f5529.cmd" -l"libmath.a" -l"libc.a" 
